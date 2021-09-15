@@ -40,7 +40,7 @@ int main()
 
     time(&end);
     cout << "Solution: " << solution << endl << endl;
-    cout << "Program completed in " << start - end << " seconds.";
+    cout << "Program completed in " << start - end << " seconds." << endl;
 
     return 0;
 }
