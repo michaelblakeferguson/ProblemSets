@@ -90,11 +90,11 @@ int main(int argc, char* argv[])
 		{
 			std::stringstream stringDecimals;
 			std::copy(decimals.begin(), decimals.end(), std::ostream_iterator<int>(stringDecimals, ""));
-			string start = stringDecimals.str().substr(0, 10);
+			string front = stringDecimals.str().substr(0, 10);
 			string middle = stringDecimals.str().substr(10, p - 11);
 			string end = stringDecimals.str().substr(p - 1);
 
-			if ((middle.find(start) == std::string::npos) && (end.find(start) != std::string::npos))
+			if ((middle.find(front) == std::string::npos) && (end.find(front) != std::string::npos))
 			{
 				solution = p;
 				break;
