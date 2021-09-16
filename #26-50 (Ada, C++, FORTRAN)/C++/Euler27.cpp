@@ -42,14 +42,13 @@
 /////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <stdio.h>
+#include <chrono>
 
 using namespace std;
 
 int main()
 {
-    time_t start, end;
-    time(&start);
+    auto start = std::chrono::high_resolution_clock::now();
 
     int solution;
     int a = 1;
@@ -68,9 +67,9 @@ int main()
     //add factor of -1 because a is negative in "n^2 + an + b"
     solution = solution * (-1);
 
-    time(&end);
+    auto done = std::chrono::high_resolution_clock::now();
     cout << "Solution: " << solution << endl << endl;
-    cout << "Program completed in " << start - end << " seconds." << endl;
+    cout << "Program completed in " << std::chrono::duration_cast<std::chrono::milliseconds>(done - start).count() << " milliseconds." << endl;
 
     return 0;
 }
