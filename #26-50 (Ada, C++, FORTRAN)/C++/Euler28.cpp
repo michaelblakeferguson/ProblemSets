@@ -78,5 +78,7 @@ int main()
 
     time(&end);
     cout << "Solution: " << (sum[0] + sum[1] + sum[2] + sum[3] + 1) << endl << endl;
-    cout << "Program completed in " << start - end << " seconds.";
+    cout << "Program completed in " << start - end << " seconds." << endl;
+    
+    return 0;
 }
