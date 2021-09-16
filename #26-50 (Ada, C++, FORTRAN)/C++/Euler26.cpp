@@ -1,12 +1,50 @@
-//Euler 26 ~ Reciprocal cycles
+/////////////////////////////////////////////////////////////////////
+// Euler 26 ~ Reciprocal cycles
+//
+// Problem Statement:
+// 
+// A unit fraction contains 1 in the numerator. The decimal
+// representation of the unit fractions with denominators 2 to 10
+// are given:
+// 
+// 1/2  = 0.5
+// 1/3  = 0.(3)
+// 1/4  = 0.25
+// 1/5  = 0.2
+// 1/6  = 0.1(6)
+// 1/7  = 0.(142857)
+// 1/8  = 0.125
+// 1/9  = 0.(1)
+// 1/10 = 0.1
+// 
+// Where 0.1(6) means 0.166666..., and has a 1-digit recurring
+// cycle. It can be seen that 1/7 has a 6-digit recurring cycle.
+// 
+// Find the value of d < 1000 for which 1/d contains the longest
+// recurring cycle in its decimal fraction part.
+// 
+/////////////////////////////////////////////////////////////////////
 
-//This question boils down to finding the highest full reptend prime < 1000.
-//A list of these values can be found provided at "oeis.org/A001913"
+
+/////////////////////////////////////////////////////////////////////
+// Algorithm Explanation:
+// 
+// This question boils down to finding the highest full reptend
+// prime < 1000. Long division is used to store the decimals
+// for each unit fraction up to the nth - 1 digit, +10 additional
+// digits to check for repetition. If the 10 digits being checked
+// aren't found in the middle of the expansion and match the end,
+// we know we have found a full reptend prime. And since the larger
+// the denominator the larger the reptend, we only need to find the
+// first full reptend starting from 1000 to know we have the largest
+// full reptend prime.
+//
+/////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <vector>
 #include <string>
 #include <sstream>
-#include <vector>
 
 using namespace std;
 
