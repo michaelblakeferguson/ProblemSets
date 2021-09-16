@@ -1,6 +1,6 @@
-// Euler27 ~ Quadratic primes
-
 /////////////////////////////////////////////////////////////////////
+// Euler27 ~ Quadratic primes
+//
 // Problem Statement:
 // 
 // Euler discovered the remarkable quadratic formula:
