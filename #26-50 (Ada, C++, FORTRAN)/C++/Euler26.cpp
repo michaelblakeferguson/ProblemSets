@@ -45,19 +45,19 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <chrono>
 
 using namespace std;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-	time_t start, end;
-	time(&start);
+	auto start = std::chrono::high_resolution_clock::now();
 
 	int p = 999;
 	int a, b, c, solution;
-	
+
 	std::vector <int> decimals(0);
-	
+
 	int i;
 	while (p > 1)
 	{
@@ -65,14 +65,14 @@ int main(int argc, char *argv[])
 		b = p;
 		i = 0;
 
-		while ((a > 0) && (i < (b+9))) //use long division to get decimal expansion
+		while ((a > 0) && (i < (b + 9))) //use long division to get decimal expansion
 		{
 			decimals.resize(i);
 
 			if (b > a)
 			{
 				a = a * 10;
-				
+
 				decimals.push_back(0);
 			}
 			else
@@ -92,7 +92,7 @@ int main(int argc, char *argv[])
 			std::copy(decimals.begin(), decimals.end(), std::ostream_iterator<int>(stringDecimals, ""));
 			string start = stringDecimals.str().substr(0, 10);
 			string middle = stringDecimals.str().substr(10, p - 11);
-			string end = stringDecimals.str().substr(p-1);
+			string end = stringDecimals.str().substr(p - 1);
 
 			if ((middle.find(start) == std::string::npos) && (end.find(start) != std::string::npos))
 			{
@@ -103,9 +103,9 @@ int main(int argc, char *argv[])
 		p--;
 	}
 
-	time(&end);
+	auto done = std::chrono::high_resolution_clock::now();
 	cout << "Solution: " << solution << endl << endl;
-	cout << "Program completed in " << (start - end) << " seconds." << endl;
+	cout << "Program completed in " << std::chrono::duration_cast<std::chrono::milliseconds>(done - start).count() << " milliseconds." << endl;
 
 	return 0;
 }
