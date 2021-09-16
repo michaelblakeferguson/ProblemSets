@@ -24,7 +24,7 @@
 // 
 // Loops up to 1 million checking if the number is a sum of fifth
 // powers by using modulo 10 to extract each digit and raise to
-// the fifth power, then adding its sum to total if it passes. 
+// the fifth power, then adding its sum to solution if it passes. 
 // 
 /////////////////////////////////////////////////////////////////////
 
@@ -40,7 +40,7 @@ int main()
 
 	int size, digit, num;
 	int sum = 0;
-	int total = 0;
+	int solution = 0;
 	for (int n = 2; n < 999999; n++)
 	{
 		num = n;
@@ -49,7 +49,7 @@ int main()
 		for (int i = 0; i < size; i++) //raise each digit to 5th power and add
 		{
 			digit = num % 10;
-			
+
 			sum = sum + int(pow(double(digit), 5.0));
 
 			num /= 10;
@@ -57,13 +57,13 @@ int main()
 
 		if (sum == n)
 		{
-			total += sum;
+			solution += sum;
 		}
 		sum = 0;
 	}
 
 	auto done = std::chrono::high_resolution_clock::now();
-	cout << "Solution: " << total << endl << endl;
+	cout << "Solution: " << solution << endl << endl;
 	cout << "Program completed in " << std::chrono::duration_cast<std::chrono::milliseconds>(done - start).count() << " milliseconds." << endl;
 
 	return 0;
