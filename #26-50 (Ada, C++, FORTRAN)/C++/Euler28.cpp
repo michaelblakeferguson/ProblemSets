@@ -54,14 +54,15 @@
 /////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <chrono>
+
 using namespace std;
 
 int main()
 {
-    time_t start, end;
-    time(&start);
+    auto start = std::chrono::high_resolution_clock::now();
 
-    int b;
+    int b, solution;
     int a[4] = { 3, 5, 7, 9 };
     int c[4] = { 10, 12, 14, 16 };
     int sum[4] = { 3, 5, 7, 9 };
@@ -76,9 +77,11 @@ int main()
         }
     }
 
-    time(&end);
-    cout << "Solution: " << (sum[0] + sum[1] + sum[2] + sum[3] + 1) << endl << endl;
-    cout << "Program completed in " << start - end << " seconds." << endl;
-    
+    solution = sum[0] + sum[1] + sum[2] + sum[3] + 1;
+
+    auto done = std::chrono::high_resolution_clock::now();
+    cout << "Solution: " << solution << endl << endl;
+    cout << "Program completed in " << std::chrono::duration_cast<std::chrono::milliseconds>(done - start).count() << " milliseconds." << endl;
+
     return 0;
 }
