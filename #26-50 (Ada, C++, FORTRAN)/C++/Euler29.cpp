@@ -30,7 +30,6 @@
 /////////////////////////////////////////////////////////////////////
 
 #include <iostream>
-#include <iterator>
 #include <vector>
 #include <chrono>
 #include "gmp.h"
