@@ -27,6 +27,8 @@
 // GMP library is used to calculate large values of the exponents
 // before converting to strings for comparison and storage.
 //
+// Compilation --> g++ Euler29.cpp -o Euler29 -lgmp
+//
 /////////////////////////////////////////////////////////////////////
 
 #include <iostream>
