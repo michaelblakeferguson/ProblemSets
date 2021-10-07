@@ -44,7 +44,6 @@ bool isPentagonal(int p)
 		}
 		n++;
 	}
-
 	return 0;
 }
 
