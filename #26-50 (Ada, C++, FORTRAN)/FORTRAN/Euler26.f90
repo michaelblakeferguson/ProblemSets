@@ -42,16 +42,19 @@
 
 program Euler26
 
-integer :: solution
+
+integer :: time_start, time_finish, clock_finish, solution
 
 integer :: p = 999
 integer :: a, b, c, i
 
-character (len=:), allocatable :: decimals
-character (len = 10) :: front, middle, end
+character (len=:), allocatable :: decimals, middle
+character (len = 10) :: front, last
 character :: d
 
-do while (p > 1)
+call SYSTEM_CLOCK(time_start)
+
+do while (p > 900)
 	a = 10
 	b = p
 	i = 0
@@ -74,24 +77,20 @@ do while (p > 1)
 	end do
 	
 	if (a > 0) then !check if it is a a full reptend prime
-		print *, i
+		!print *, i
 		front = decimals(1:10)
-		print *, front
-		middle = decimals(10:p-11)
-		print *, middle
-		end = decimals(p-1:len(decimals))
-		print *, end
-		if(end == front) then
+		middle = decimals(11:p)
+		last = decimals(p:len(decimals))
+		if ((last == front) .and. (index(middle, front) == 0)) then
 			solution = p
 			EXIT
 		end if
 	end if
 	
 	p = p - 1
-	print *
-	print *
 end do
 
-print *, solution
-
+call SYSTEM_CLOCK(time_finish)
+clock_finish = time_finish - time_start
+write (*,"(A10,I6,//,A21,I5,A14)") "Solution: ",solution,"Program completed in ",clock_finish," milliseconds."
 end program Euler26
