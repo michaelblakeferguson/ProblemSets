@@ -43,8 +43,8 @@
 
 program Euler27
 
-integer :: time_start, time_finish
-integer :: a = 1, b = 0, max = 1000, solution
+integer :: time_start, time_finish, clock_finish, solution
+integer :: a = 1, b = 0, max = 1000
 
 call SYSTEM_CLOCK(time_start)
 
@@ -59,13 +59,7 @@ end do
 !add factor of -1 because a is negative in "n^2 + an + b"
 solution = solution * (-1)
 
-write (*,"(A10)", advance='no') "Solution: "
-write (*,"(I6)") solution
-write(*,"(A1)");
-
 call SYSTEM_CLOCK(time_finish)
-write (*,"(A21)", advance='no') "Program completed in "
-!write (*,"(Il)", advance='no') clock_finish 
-write (*,"(A14)") " milliseconds."
-
+clock_finish = time_finish - time_start
+write (*,"(A10,I6,//,A21,I5,A14)") "Solution: ",solution,"Program completed in ",clock_finish," milliseconds."
 end program Euler27
