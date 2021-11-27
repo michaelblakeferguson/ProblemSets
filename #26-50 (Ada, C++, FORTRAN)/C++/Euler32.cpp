@@ -118,7 +118,6 @@ int main()
 	
 	int a, b, c = 1;
 	vector<int> products;
-	vector<char> Avec, Bvec, Cvec;
 	string Astr, Bstr, Cstr;
 	
 	for(int a = 1; a < 50; a++)
