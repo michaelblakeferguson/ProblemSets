@@ -24,6 +24,7 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+#include <math.h>
 
 using namespace std;
 
@@ -126,7 +127,6 @@ int main()
 	int solution = 0;
 
 	string s1;
-	int length = 0;
 	for (int i = 7654321; i > 2143; i--)
 	{
 		s1 = to_string(i);
