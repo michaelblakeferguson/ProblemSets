@@ -1,5 +1,3 @@
-!~WORK IN PROGRESS~
-
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Euler43 ~ Sub-string divisibility
 ! 
@@ -34,23 +32,26 @@
 ! Lower bound is set to the 1st given value, upper bound is set to
 ! marginally above the largest found value.
 !
+! Compilation: $ gfortran Euler43.f90 -o Euler43 -fdefault-integer-8
+!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 program Euler43
 	
 	implicit none
-	integer :: time_start, time_finish, clock_finish
-	integer*8 :: solution = 0
+	integer*4 :: time_start, time_finish, clock_finish
+	integer :: solution = 0
 	
 	character(:), allocatable :: str
 	character(3)  :: s234, s345, s456, s567, s678, s789, s8910
 	integer       :: i234, i345, i456, i567, i678, i789, i8910
-	integer*8     :: max_ = 4200000000, strINT = 1402356789
+	integer    :: max_   = 4200000000
+	integer    :: strINT = 1402356789
 	integer, dimension(10) :: reverse, numbers = (/ 1,4,0,2,3,5,6,7,8,9 /)
 	integer :: i, j, u, x, y, z
 	
 	call SYSTEM_CLOCK(time_start)
-
+	
 	str = "1402356789"
 	do while(strINT .LT. max_)
 	
@@ -76,24 +77,24 @@ program Euler43
 			reverse(9-i+1) = numbers(i+1)
 		end do
 		
-		do i = 0,(9-x)
-			j = x + 1 !mbf
+		j = x + 1
+		do i = 0,(9-x-1)
 			numbers(j+1) = reverse(i+1)
 			j = j + 1
 		end do
-			
+		
 		str = ""
 		do u = 0,9
 			str = str // CHAR(numbers(u+1)+48)
 		end do
 		
-		s234 = str(1:3)
-		s345 = str(2:4)
-		s456 = str(3:5)
-		s567 = str(4:6)
-		s678 = str(5:7)
-		s789 = str(6:8)
-		s8910 = str(7:9)
+		s234 = str(2:4)
+		s345 = str(3:5) 
+		s456 = str(4:6)
+		s567 = str(5:7) 
+		s678 = str(6:8)
+		s789 = str(7:9)
+		s8910 = str(8:10)
 		
 		read(s234,*) i234
 		read(s345,*) i345
@@ -102,17 +103,19 @@ program Euler43
 		read(s678,*) i678
 		read(s789,*) i789
 		read(s8910,*) i8910
+		
 		read(str,*) strINT
-		if( (modulo(i234,10)==0) .and. (modulo(i345,10)==0) .and. (modulo(i456,10)==0) .and. &
-			(modulo(i567,10)==0) .and. (modulo(i678,10)==0) .and. (modulo(i789,10)==0) .and. &
-			(modulo(i8910,10)==0) ) then
+		if( (modulo(i234,2)==0) .and. (modulo(i345,3)==0) .and. (modulo(i456,5)==0) .and. &
+			(modulo(i567,7)==0) .and. (modulo(i678,11)==0) .and. (modulo(i789,13)==0) .and. &
+			(modulo(i8910,17)==0) ) then
 		
 			solution = solution + strINT
 		end if
 	
 	end do
+	
 	call SYSTEM_CLOCK(time_finish)
 	clock_finish = time_finish - time_start
-	write (*,"(A10,I10,//,A21,I5,A14)") "Solution: ",solution,"Program completed in ",clock_finish," milliseconds."
+	write (*,"(A10,I11,//,A21,I5,A14)") "Solution: ",solution,"Program completed in ",clock_finish," milliseconds."
 
 end program Euler43
