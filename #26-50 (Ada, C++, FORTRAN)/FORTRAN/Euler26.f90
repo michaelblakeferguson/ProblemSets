@@ -77,7 +77,6 @@ do while (p > 900)
 	end do
 	
 	if (a > 0) then !check if it is a a full reptend prime
-		!print *, i
 		front = decimals(1:10)
 		middle = decimals(11:p)
 		last = decimals(p:len(decimals))
