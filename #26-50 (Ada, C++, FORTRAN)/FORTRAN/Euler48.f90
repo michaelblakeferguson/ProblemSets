@@ -16,7 +16,7 @@
 ! Trivial problem when using the FM library. Loop through 1 to 1000
 ! adding each rop output to sum, then extracting the final 10 digits.
 !
-! Compilation --> Compiled using Windows PowerShell
+! Compilation --> Compiled using MinGw & Windows PowerShell
 !		  gfortran Euler48.f90 -c -O3
 !                 gfortran fmsave.o FM.o FMZM90.o Euler48.o -o Euler48
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
