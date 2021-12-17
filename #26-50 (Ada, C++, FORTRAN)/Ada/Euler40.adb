@@ -52,13 +52,13 @@ begin
       
    end loop;
    
-   solution := Integer'Value (To_String(To_Unbounded_String(Slice(champ,1,1)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,10,10)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,100,100)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,1000,1000)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,10000,10000)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,100000,100000)))) *
-               Integer'Value (To_String(To_Unbounded_String(Slice(champ,1000000,1000000))));
+   solution := Integer'Value (Slice(champ,1,1)) *
+               Integer'Value (Slice(champ,10,10)) *
+               Integer'Value (Slice(champ,100,100)) *
+               Integer'Value (Slice(champ,1000,1000)) *
+               Integer'Value (Slice(champ,10000,10000)) *
+               Integer'Value (Slice(champ,100000,100000)) *
+               Integer'Value (Slice(champ,1000000,1000000));
    
    end_time := Ada.Real_Time.Clock;
    elapsed_seconds := end_time - start_time;
