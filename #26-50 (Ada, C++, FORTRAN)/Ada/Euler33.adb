@@ -35,7 +35,7 @@ with Ada.Text_IO;   use  Ada.Text_IO;
 with Ada.Real_Time; use  Ada.Real_Time;
 with Ada.Numerics.Generic_Elementary_Functions;
 
-procedure Euler32 is
+procedure Euler33 is
    package Time_IO is new Fixed_IO(Duration);
    start_time, end_time : Ada.Real_Time.Time;
    elapsed_seconds : Ada.Real_Time.Time_Span;
@@ -111,4 +111,4 @@ begin
    Put("Program completed in ");
    Time_IO.Put(To_Duration(elapsed_seconds), Fore => 0, Aft => 3);
    Put(" seconds");
-end Euler32;
+end Euler33;
