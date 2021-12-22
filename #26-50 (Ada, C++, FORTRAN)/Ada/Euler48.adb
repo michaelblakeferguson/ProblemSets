@@ -1,3 +1,4 @@
+--WORK IN PROGRESS!-- (BIG_INTEGER UPPER LIMIT ISSUE)
 ---------------------------------------------------------------------
 -- Euler48 ~ Self powers
 -- 
