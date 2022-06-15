@@ -60,7 +60,6 @@ function main()
 	n = 1
 	
 	count = 0
-	solution = 0
 	while (n < 10000)
 		x = n
 		while (count < 50)
