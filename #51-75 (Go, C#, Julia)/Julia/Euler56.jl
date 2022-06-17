@@ -26,13 +26,12 @@
 
 using BenchmarkTools
 
-solution = 0
-a = big"1"
-b = big"1"
-c = big"0"
-
 function main()
-
+	solution = 0
+	a = big"1"
+	b = big"1"
+	c = big"0"
+	
 	while a < 100
 		while b < 100
 			c = a^b
@@ -42,20 +41,18 @@ function main()
 				total = total + Int(s[i]) - 48 
 			end
 			if total > solution
-				global solution = total
+				solution = total
 			end
-			global b = b + 1
+			b = b + 1
 		end
-		global b = 1
-		global a = a + 1
+		b = 1
+		a = a + 1
 	end
+	
+	return solution
 end
 
-@elapsed begin
-main()
-end
-
-#run @elapsed twice to ignore compilation overhead
+solution = main()
 t = @elapsed main()
 print("Solution: ", solution)
 t = t * 1000;
